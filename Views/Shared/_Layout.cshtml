@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <form class="container-fluid justify-content-start">
+            <a asp-area="" asp-controller="Pizza" asp-action="Index">
+                <input type="button" class="btn btn-outline-success me-2" value="Index" />
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">
+                <input type="button" class="btn btn-outline-success me-2" value="Privacy" />
+            </a>
+        </form>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+<!-- window.location.href='@@Html.Action("Create")' -->
