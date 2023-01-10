@@ -22,7 +22,7 @@ namespace LaMiaPizzeria.Controllers
             using (PizzaContext db = new PizzaContext())
             {
                 Pizza pizzaTrovato = db.Pizza
-                    .Where(SingoloPostNelDb => SingoloPostNelDb.Id == id)
+                    .Where(SingoloPizzaNelDb => SingoloPizzaNelDb.Id == id)
                     .FirstOrDefault();
 
                 if (pizzaTrovato != null)
@@ -45,7 +45,7 @@ namespace LaMiaPizzeria.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Crea", formData);
+                return View("Create", formData);
             }
 
             using (PizzaContext db = new PizzaContext())
