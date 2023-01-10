@@ -1,5 +1,4 @@
 ﻿using LaMiaPizzeria.Models;
-using LaMiaPizzeria.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
@@ -9,11 +8,12 @@ namespace LaMiaPizzeria.Controllers
     {
       
 
-        public IActionResult Index()
+       /* public IActionResult Index()
         {
-            List<Pizza> listaDeiPost = PizzaData.GetPizzas();
+            List<Pizza> pizzas = db.Pizzas.To
+              
 
-            return View("Index", listaDeiPost);
+            return View("Index", pizzas);
         }
 
         public IActionResult Details(int id)
@@ -29,6 +29,6 @@ namespace LaMiaPizzeria.Controllers
             }
 
             return NotFound("Non ci sono pizze presenti");
-        }
+        }*/
     }
 }
