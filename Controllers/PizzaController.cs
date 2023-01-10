@@ -8,27 +8,53 @@ namespace LaMiaPizzeria.Controllers
     {
       
 
-       /* public IActionResult Index()
+        public IActionResult Index()
         {
-            List<Pizza> pizzas = db.Pizzas.To
-              
-
-            return View("Index", pizzas);
+            using (PizzaContext db = new PizzaContext())
+            {
+                List<Pizza> listaPizza = db.Pizza.ToList<Pizza>();
+                return View("Index", listaPizza);
+            }
         }
 
         public IActionResult Details(int id)
         {
-            List<Pizza> listaDeiPost = PizzaData.GetPizzas();
-
-            foreach (Pizza pizza in listaDeiPost)
+            using (PizzaContext db = new PizzaContext())
             {
-                if (pizza.Id == id)
+                Pizza pizzaTrovato = db.Pizza
+                    .Where(SingoloPostNelDb => SingoloPostNelDb.Id == id)
+                    .FirstOrDefault();
+
+                if (pizzaTrovato != null)
                 {
-                    return View(pizza);
+                    return View(pizzaTrovato);
                 }
+                return NotFound("Non ci sono pizze presenti");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza formData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Crea", formData);
             }
 
-            return NotFound("Non ci sono pizze presenti");
-        }*/
+            using (PizzaContext db = new PizzaContext())
+            {
+                db.Pizza.Add(formData);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

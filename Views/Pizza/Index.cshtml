@@ -1,11 +1,14 @@
 ﻿@{
-    // ViewData["Title"] = "Home Page";
-    //  Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Pizza List";
     Layout = null;
 }
 
-
 @model List<Pizza>
+
+<a class="btn btn-primary"
+   href="@Url.Action("Create", "Post")">
+    Crea nuova pizza
+</a>
 
 @if (Model.Count == 0)
 {
