@@ -1,12 +1,15 @@
 ﻿@model Pizza
 
-
 <div class="container">
-    <form asp-controller="Pizza" asp-action="Create" method="post">
+    <form asp-controller="Post" asp-action="Update" method="post">
         @Html.AntiForgeryToken()
         <div class="mb-3">
+            <label>Id:</label>
+            <input asp-for="Id" type="text" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
             <label>Titolo:</label>
-            <input asp-for="Title" type="text" class="form-control"/>
+            <input asp-for="Title" type="text" class="form-control" />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="mb-3">
@@ -19,6 +22,6 @@
             <input asp-for="Image" type="text" class="form-control" />
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Salva</button>
+        <button type="submit" class="btn btn-primary">Salva Modifiche al Pizza</button>
     </form>
 </div>

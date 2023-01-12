@@ -1,12 +1,21 @@
-﻿namespace LaMiaPizzeria.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
+
+namespace LaMiaPizzeria.Models
 {
     public class Pizza
     {
    
 
         public int Id { get; set; }
+        [Required(ErrorMessage = "Il campo è obbligatorio")]
+        [StringLength(100, ErrorMessage = "Il nome non può avere più di 100 caratteri")]
+        [Column(TypeName = "varchar(100)")]
         public string Title { get; set; }
         public string Description { get; set; }
+        [Url]
+        [Required]
         public string Image { get; set; }
 
         public Pizza() { }  

@@ -11,13 +11,17 @@
             <a asp-area="" asp-controller="Pizza" asp-action="Index">
                 <input type="button" class="btn btn-outline-success me-2" value="Index" />
             </a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">
-                <input type="button" class="btn btn-outline-success me-2" value="Privacy" />
+            <a asp-area="" asp-controller="Pizza" asp-action="Create">
+                <input type="button" class="btn btn-outline-success me-2" value="Create" />
             </a>
         </form>
     </nav>
-    <div>
+    <div class="container">
         @RenderBody()
+        @if (IsSectionDefined("scripts"))
+        {
+            RenderSection("scripts");
+        }
     </div>
 </body>
 </html>
