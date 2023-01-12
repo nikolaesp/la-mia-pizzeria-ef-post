@@ -1,7 +1,7 @@
-﻿@{
+﻿@*@{
     // ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+}*@
 
 
 
@@ -20,7 +20,7 @@
 else
 {
 
-    <body>
+   // <body>
 
     <div class="container">
         <div class="row">
@@ -50,8 +50,15 @@ else
                                 <td class="title">@pizza.Title</td>
                                 <td class="description">@pizza.Description</td>
                                 <td>
-                                    <a class="btn btn-primary" href="@Url.Action("Details", "Pizza", new { id = @pizza.Id } )" role="button">Dettagli</a>
+                                    <a class="btn btn-info btn-sm" href="@Url.Action("Details", "Pizza", new { id = pizza.Id })">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                    </a>
+                                    <a class="btn btn-warning btn-sm" href="@Url.Action("Update", "Pizza", new { id = pizza.Id })">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>
+                                    </a>
                                 </td>
+                                
+
                             </tr>
                         }
 
@@ -61,8 +68,8 @@ else
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
+  @*  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>*@
+//</body>
 
 }
 
