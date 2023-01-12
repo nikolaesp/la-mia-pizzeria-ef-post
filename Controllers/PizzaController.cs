@@ -1,12 +1,13 @@
 ﻿using LaMiaPizzeria.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Microsoft.SqlServer.Server;
 
 namespace LaMiaPizzeria.Controllers
 {
     public class PizzaController : Controller
     {
-      
+
 
         public IActionResult Index()
         {
@@ -38,7 +39,7 @@ namespace LaMiaPizzeria.Controllers
         {
             return View("Create");
         }
-       
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -72,7 +73,7 @@ namespace LaMiaPizzeria.Controllers
 
                 return View("Update", pizzaupdate);
             }
-           
+
         }
 
         [HttpPost]
@@ -106,11 +107,31 @@ namespace LaMiaPizzeria.Controllers
 
         }
 
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            using (PizzaContext db = new PizzaContext())
+            {
+                Pizza pizzadelete = db.Pizza.Where(pizza => pizza.Id == id).FirstOrDefault();
 
+                if (pizzadelete != null)
+                {
+                    db.Pizza.Remove(pizzadelete);
+                    db.SaveChanges();
 
-
-
-
-
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound("Il post da eliminare non è stato trovato!");
+                }
+            }
+        }
     }
+
 }
+
+
+    
+
