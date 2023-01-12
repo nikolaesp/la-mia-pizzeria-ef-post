@@ -107,7 +107,8 @@ namespace LaMiaPizzeria.Controllers
 
         }
 
-        [HttpDelete]
+        //[HttpDelete] // se qui metti metodo delete devi mettere metodo delete anche nella view. Oppure usi metodo post
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
